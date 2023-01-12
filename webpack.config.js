@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const EsLintPlugin = require("eslint-webpack-plugin")
 
 const mode = process.env.NODE_ENV || 'development';
 
@@ -28,6 +29,7 @@ module.exports = {
     plugins: [new HtmlWebpackPlugin({
         template: path.resolve(__dirname,'src','index.html')
     }),
+    new EsLintPlugin({extensions: ['ts']}),
     new MiniCssExtractPlugin({
         filename: '[name].[contenthash].css'
     })

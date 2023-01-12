@@ -1,0 +1,78 @@
+.main_prod {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    .product_block{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid black;
+        .product_title{
+            width: 100%;
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 40px;
+            text-align: center;
+        }
+        .product-bottom{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .product_pic{
+                width: 30%;
+                padding-top: 30%;
+                background-size: 100% 100%;
+            }
+            .product_inf{
+                width: 40%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0;
+                .prod-info_item{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    border: 1px solid black;
+                    .item_info-title{
+                        text-align: center;
+                        width: 100%;
+                        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                        font-size: 25px;
+                        background-color: #ff00ff;
+                    }
+                    .item_info-description{
+                        width: 100%;
+                        text-align: center;
+                        font-size: 20px;
+                        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                    }
+                }
+            }
+            .product-cart{
+                display: flex;
+                width: 20%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                button{
+                    width: 60%;
+                    padding: 5%;
+                    margin: 5%;
+                    text-align: center;
+                    color: #ffff;
+                    background-color: rgba($color: #ff0000, $alpha: 1.0);
+                    cursor: pointer;
+                }
+                .product-info_price{
+                    font-size: 30px;
+                    text-shadow: 0 0 10px rgb(184 24 24), 0 0 20px red, 0 0 30px red, 0 0 40px red;
+                }
+            }
+        }
+    }
+}
