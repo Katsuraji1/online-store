@@ -1,0 +1,104 @@
+.main_cart{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2vw;
+    .cart_item_div{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+            .cart-item{
+                margin: 1%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        border: 1px solid black;
+        .item_pic{
+            margin: 0;
+            width: 10%;
+            padding-top: 12%;
+            background-size: 100% 100%;
+        }
+        .item_full_description{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .item_title{
+                width: 100%;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 1.3vw;
+                font-weight: 700;
+                text-align: center;
+            }
+            .item_description{
+                width: 100%;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 1vw;
+                text-align: center;
+            }
+        }
+        .item-count-price{
+            margin: 0;
+            width: 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+                    .item_count_info{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 1.7vw;
+            margin: 0;
+            .count_plus{
+                margin: 0;
+                cursor: pointer;
+            }
+            .count_negative{
+                margin: 0;
+                cursor: pointer;
+            }
+        }
+        .common-item-price{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 1.7vw;
+        }
+        }
+
+    }
+    }
+    .summary{
+        overflow: hidden;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid orange;
+        align-items: center;
+        span{
+            margin: 4%;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.7vw;
+        }
+        .promo{
+            width: 80%;
+            border: 1px solid red;
+            padding: 0.4rem;
+            border-radius: 2rem;
+        }
+        .buy_now_button{
+            width: 40%;
+            border-radius: 2rem;
+            padding: 0.4rem;
+            margin: 3rem auto 1rem;
+            cursor: pointer;
+            font-size: 1.7vw;
+        }
+    }
+}

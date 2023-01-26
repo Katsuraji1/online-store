@@ -1,39 +1,32 @@
+import { App } from './app';
 import { createDiv } from './createDiv';
+import { searchProd } from './search';
 
 export async function createMainPage() {
+    const mainDiv = document.querySelector('main') as HTMLElement;
+    mainDiv.innerHTML = '';
+    const main = mainDiv.appendChild(document.createElement('div')) as HTMLElement;
+    main.classList.add('main');
     createDiv('main', 'left_side', 'div');
     createDiv('main', 'right_side', 'div');
-    createDiv('right_side', 'price_block', 'div');
-    createDiv('price_block', 'buy_text', 'p', 'Купить');
-    createDiv('price_block', 'form_horizontal', 'div');
-    createDiv('form_horizontal', 'min_price', 'input');
-    createDiv('form_horizontal', 'max_price', 'input');
+
+    createDiv('right_side', 'search_block', 'input');
+
+    const search_block = document.querySelector('.search_block') as HTMLInputElement;
+    search_block.placeholder = 'Поиск';
+    search_block.type = 'Text';
+    search_block.oninput = () => {
+        const filteredSearch = new App(searchProd(search_block.value));
+        filteredSearch.createMainPage();
+        if (search_block.value !== '') {
+            window.location.hash = `search=${search_block.value}`;
+        }
+    };
     createDiv('right_side', 'producer_block', 'div');
 
     createDiv('producer_block', 'producer_text', 'span', 'Производитель');
     createDiv('producer_block', 'producer-slider', 'div');
-    createDiv('producer-slider', 'search_producer', 'input');
     createDiv('producer-slider', 'producer_list', 'ul');
-
-    createDiv('right_side', 'available_taste', 'div');
-    createDiv('available_taste', 'taste_text', 'span', 'Тип вкуса жидкости');
-    createDiv('available_taste', 'taste-slider', 'div');
-    createDiv('taste-slider', 'taste_list', 'ul');
-
-    createDiv('right_side', 'vg-pg', 'div');
-    createDiv('vg-pg', 'vg-pg_text', 'span', 'VG/PG');
-    createDiv('vg-pg', 'vg-pg-slider', 'div');
-    createDiv('vg-pg-slider', 'vg-pg_list', 'ul');
-
-    createDiv('right_side', 'hardness', 'div');
-    createDiv('hardness', 'hardness_text', 'span', 'Крепкость мг/мл');
-    createDiv('hardness', 'hardness-slider', 'div');
-    createDiv('hardness-slider', 'hardness_list', 'ul');
-
-    createDiv('right_side', 'nicotine', 'div');
-    createDiv('nicotine', 'nicotine_text', 'span', 'Никотин');
-    createDiv('nicotine', 'nicotine-slider', 'div');
-    createDiv('nicotine-slider', 'nicotine_list', 'ul');
 
     createDiv('right_side', 'volume', 'div');
     createDiv('volume', 'volume_text', 'span', 'Объем, мл');

@@ -1,0 +1,40 @@
+.order_form{
+    display: block;
+    width: 30vw;
+    left: 50vw;
+    top: 10vh;
+    margin-left: -15vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid orange;
+    z-index: 2;
+    input{
+        outline: none;
+        font-size: 2vw;
+        text-align: center;
+        margin: 1%;
+        border-radius: 2rem;
+        border: 0.3rem solid orange;
+    }
+
+    button{
+        outline: none;
+        font-size: 2vw;
+        text-align: center;
+        margin: 1%;
+        border-radius: 2rem;
+        border: 0.3rem solid orange;
+        background-color:darkkhaki;
+    }
+}
+.blur_bg{
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: #000000;
+    opacity: 0.7;
+}

@@ -50,10 +50,11 @@ body{
                         height: 3.5vh;
                         background-size: 100% 100%;
                         margin: 0;
+                        cursor: pointer;
                     }
                     .total_price{
                         font-family: 'Courier New', Courier, monospace;
-                        font-size: 20px;
+                        font-size: 1.2vw;
                         margin: 0;
                     }
                 }
@@ -69,15 +70,13 @@ body{
             height: 100%;
             background-color: #FFFF;
             padding: 1%;
-            display: grid;
-            grid-template-columns: 2.5fr 1fr;
+            display: flex;
             .left_side{
                 width: 100%;
-                height: auto;
                 display: flex;
                 flex-wrap: wrap;
+                font-size: 25px;
                 .card{
-                    max-height: 250px;
                     width: 15%;
                     margin: 1%;
                     border: 0.5px solid  rgb(70, 62, 62);
@@ -97,14 +96,14 @@ body{
                             word-wrap:break-word;
                             font-family:Verdana, Geneva, Tahoma, sans-serif;
                             text-align: center;
-                            font-size: 13px;
+                            font-size: 0.75vw;
                             margin: 1%;
                             cursor: default;
                         }
                         .card_price{
                             font-family:Arial, Helvetica, sans-serif;
                             font-weight: 1000;
-                            font-size: unset;
+                            font-size: 1.2vw;
                         }
 
                         .addtocart{
@@ -119,7 +118,7 @@ body{
                             background-color: black;
                             color: #FFFF;
                             text-rendering: auto;
-                            font-size: 12px;
+                            font-size: 0.6vw;
                             cursor: pointer;
                         }
                         .addtocart:hover{
@@ -128,12 +127,15 @@ body{
                 }
             }
             .right_side{
-                width: 100%;
+                width: 30%;
                 height: auto;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                border: 0.5px solid rgb(70, 62, 62);
+
+                .search_block{
+                    width: 50%;
+                }
 
                 .price_block{
                     width: 50%;
@@ -146,7 +148,7 @@ body{
                         width: 100%;
                         text-align: start;
                         font-family:Verdana, Geneva, Tahoma, sans-serif;
-                        font-size: 15px;
+                        font-size: 1vw;
                         font-weight: 1000;
                     }
 
@@ -178,7 +180,7 @@ body{
                         width: 70%;
                         text-align: start;
                         font-family:Verdana, Geneva, Tahoma, sans-serif;
-                        font-size: 15px;
+                        font-size: 1vw;
                         font-weight: 1000;
                         margin: 1%; 
                     }
@@ -207,6 +209,7 @@ body{
                             flex-direction: column;
                             list-style: none;
                             li{
+                                font-size: 1vw;
                                 margin: 0;
                                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                             }
@@ -224,7 +227,7 @@ body{
                         width: 100%;
                         text-align: start;
                         font-family:Verdana, Geneva, Tahoma, sans-serif;
-                        font-size: 15px;
+                        font-size:1vw;
                         font-weight: 1000;
                         margin: 1%; 
                     }
@@ -247,6 +250,7 @@ body{
                             flex-direction: column;
                             list-style: none;
                             li{
+                                font-size: 1vw;
                                 margin: 0;
                                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                             }
@@ -264,7 +268,7 @@ body{
                         width: 100%;
                         text-align: start;
                         font-family:Verdana, Geneva, Tahoma, sans-serif;
-                        font-size: 15px;
+                        font-size: 1vw;
                         font-weight: 1000;
                         margin: 1%; 
                     }
@@ -287,6 +291,7 @@ body{
                             flex-direction: column;
                             list-style: none;
                             li{
+                                font-size: 1vw;
                                 margin: 0;
                                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                             }
@@ -304,7 +309,7 @@ body{
                         width: 100%;
                         text-align: start;
                         font-family:Verdana, Geneva, Tahoma, sans-serif;
-                        font-size: 15px;
+                        font-size: 1vw;
                         font-weight: 1000;
                         margin: 1%; 
                     }
@@ -327,6 +332,7 @@ body{
                             flex-direction: column;
                             list-style: none;
                             li{
+                                font-size: 1vw;
                                 margin: 0;
                                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                             }
@@ -344,7 +350,7 @@ body{
                         width: 100%;
                         text-align: start;
                         font-family:Verdana, Geneva, Tahoma, sans-serif;
-                        font-size: 15px;
+                        font-size: 1vw;
                         font-weight: 1000;
                         margin: 1%; 
                     }
@@ -367,6 +373,7 @@ body{
                             flex-direction: column;
                             list-style: none;
                             li{
+                                font-size: 1vw;
                                 margin: 0;
                                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                             }
@@ -384,7 +391,7 @@ body{
                         width: 100%;
                         text-align: start;
                         font-family:Verdana, Geneva, Tahoma, sans-serif;
-                        font-size: 15px;
+                        font-size: 1vw;
                         font-weight: 1000;
                         margin: 1%; 
                     }
@@ -407,6 +414,7 @@ body{
                             flex-direction: column;
                             list-style: none;
                             li{
+                                font-size: 1vw;
                                 margin: 0;
                                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                             }
