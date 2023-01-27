@@ -12,7 +12,6 @@ export class cart {
     }
 
     public createCartPage() {
-        window.location.hash = 'cart';
         main.innerHTML = '';
         const main_cart = main.appendChild(document.createElement('div')) as HTMLElement;
         main_cart.classList.add('main_cart');

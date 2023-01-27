@@ -12,20 +12,20 @@ export class build {
     public async build() {
         createMainPage();
         const newApp = await new App(prodList);
-        const basket_page = await new cart(cartArray);
         newApp.createMainPage();
         newApp.createfilter();
         logo.addEventListener('click', () => {
             try {
-                createMainPage();
+                window.location.hash = 'main';
+                /* createMainPage();
                 newApp.createMainPage('logo');
-                newApp.createfilter();
+                newApp.createfilter(); */
             } catch (err) {
                 console.log(err);
             }
         });
         basket.addEventListener('click', () => {
-            basket_page.createCartPage();
+            window.location.hash = 'cart';
         });
 
         window.addEventListener('hashchange', () => {
@@ -39,7 +39,6 @@ export class build {
                     const newMainPage = new App(prodList);
                     newMainPage.createMainPage();
                     newMainPage.createfilter();
-                    console.log('1');
                     break;
             }
             prodList.forEach((el: prodInt) => {

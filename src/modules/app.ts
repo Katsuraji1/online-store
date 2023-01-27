@@ -1,7 +1,7 @@
 /* import { prodList } from './build';
 import { filterList } from './filterProd'; */
 import { prodList } from './build';
-import { productInfo } from './info';
+//import { productInfo } from './info';
 import { prodInt } from './interface';
 import { checkTotaPrice } from './totalPrice';
 
@@ -11,10 +11,16 @@ export let filtVolume: Array<prodInt> = [];
 export const cartArray: Array<prodInt> = [];
 export const totalPriceDiv = document.querySelector('.total_price') as HTMLElement;
 
+const producerArray: Array<string> = [];
+const volumeArray: Array<number> = [];
+
 function FiltFunc(Array: Array<number | string>, list: string) {
     if (Array.every((el) => typeof el === 'number')) {
         Array.sort((a, b) => +a - +b);
     }
+
+    let manufArray: Array<string> = [];
+    let volArr: Array<string> = [];
 
     Array.forEach((el) => {
         filtArray = [];
@@ -66,20 +72,34 @@ function FiltFunc(Array: Array<number | string>, list: string) {
             }
             filtArray = filtProducer.filter((i) => filtVolume.includes(i));
             if (filtVolume.length === 0) {
-                const filterListClass = new App(filtProducer);
-                filterListClass.createMainPage();
+                manufArray = [];
+                filtProducer.forEach((el: prodInt) => {
+                    manufArray.push(`${el.producer}|`);
+                });
+                window.location.hash = `main/manufacturer=${[...new Set(manufArray)].join('')}`;
             }
             if (filtProducer.length === 0) {
-                const filterListClass = new App(filtVolume);
-                filterListClass.createMainPage();
+                volArr = [];
+                filtVolume.forEach((el: prodInt) => {
+                    volArr.push(`${el.volume}|`);
+                });
+                window.location.hash = `main/volume=${[...new Set(volArr)].join('')}`;
             }
             if (filtProducer.length !== 0 && filtVolume.length !== 0) {
-                const filterListClass = new App(filtArray);
-                filterListClass.createMainPage();
+                manufArray = [];
+                volArr = [];
+                filtProducer.forEach((el: prodInt) => {
+                    manufArray.push(`${el.producer}|`);
+                });
+                filtVolume.forEach((el: prodInt) => {
+                    volArr.push(`${el.volume}|`);
+                });
+                window.location.hash = `main/manufacturer=${[...new Set(manufArray)].join('')}&volume=${[
+                    ...new Set(volArr),
+                ].join('')}`;
             }
             if (filtProducer.length == 0 && filtVolume.length == 0) {
-                const filterListClass = new App(prodList);
-                filterListClass.createMainPage();
+                window.location.hash = 'main';
             }
             if (filtArray.length == 0 && filtProducer.length !== 0 && filtVolume.length !== 0) {
                 const leftSide = document.querySelector('.left_side') as HTMLElement;
@@ -89,8 +109,6 @@ function FiltFunc(Array: Array<number | string>, list: string) {
     });
 }
 
-const producerArray: Array<string> = [];
-const volumeArray: Array<number> = [];
 export class App {
     prod: Array<prodInt>;
     constructor(prod: Array<prodInt>) {
@@ -98,8 +116,6 @@ export class App {
     }
 
     createMainPage(check?: string) {
-        const manufArray: Array<string> = [];
-        const volArr: Array<string> = [];
         if (check?.toLocaleLowerCase() === 'logo') {
             filtArray = [];
             filtVolume = [];
@@ -111,29 +127,11 @@ export class App {
             filtProducer = [];
             window.location.hash = 'main';
         }
-        if (filtProducer.length !== 0 && filtVolume.length !== 0) {
-            filtProducer.forEach((el: prodInt) => {
-                manufArray.push(`${el.producer}|`);
-            });
-            filtVolume.forEach((el: prodInt) => {
-                volArr.push(`${el.volume}|`);
-            });
-            window.location.hash = `main/manufacturer=${[...new Set(manufArray)].join('')}&volume=${[
-                ...new Set(volArr),
-            ].join('')}`;
-        }
-        if (filtProducer.length !== 0 && filtVolume.length === 0) {
-            filtProducer.forEach((el: prodInt) => {
-                manufArray.push(`${el.producer}|`);
-            });
-            window.location.hash = `main/manufacturer=${[...new Set(manufArray)].join('')}`;
+        /* if (filtProducer.length !== 0 && filtVolume.length === 0) {
+
         }
         if (filtProducer.length === 0 && filtVolume.length !== 0) {
-            filtVolume.forEach((el: prodInt) => {
-                volArr.push(`${el.volume}|`);
-            });
-            window.location.hash = `main/volume=${[...new Set(volArr)].join('')}`;
-        }
+        } */
         const leftSide = document.querySelector('.left_side') as HTMLElement;
         leftSide.innerHTML = '';
         this.prod.forEach((el: prodInt) => {
@@ -155,8 +153,9 @@ export class App {
             producerArray.push(el.producer);
             volumeArray.push(el.volume);
             cardPic.addEventListener('click', () => {
-                const prodInfo = new productInfo(el);
-                prodInfo.createProdInfoBlock();
+                window.location.hash = `product-details/${el.id}`;
+                /* const prodInfo = new productInfo(el);
+                prodInfo.createProdInfoBlock(); */
             });
             addToCart.addEventListener('click', () => {
                 if (addToCart.textContent === 'Купить') {

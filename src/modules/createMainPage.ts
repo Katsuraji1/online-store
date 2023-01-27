@@ -1,6 +1,4 @@
-import { App } from './app';
 import { createDiv } from './createDiv';
-import { searchProd } from './search';
 
 export async function createMainPage() {
     const mainDiv = document.querySelector('main') as HTMLElement;
@@ -16,10 +14,13 @@ export async function createMainPage() {
     search_block.placeholder = 'Поиск';
     search_block.type = 'Text';
     search_block.oninput = () => {
-        const filteredSearch = new App(searchProd(search_block.value));
-        filteredSearch.createMainPage();
+        /* const filteredSearch = new App(searchProd(search_block.value));
+        filteredSearch.createMainPage(); */
         if (search_block.value !== '') {
             window.location.hash = `search=${search_block.value}`;
+        }
+        if (search_block.value === '') {
+            window.location.hash = 'main';
         }
     };
     createDiv('right_side', 'producer_block', 'div');

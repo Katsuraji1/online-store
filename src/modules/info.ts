@@ -11,7 +11,6 @@ export class productInfo {
         this.el = el;
     }
     createProdInfoBlock() {
-        window.location.hash = `product-details/${this.el.id}`;
         mainDiv.innerHTML = '';
         const main_prod = mainDiv.appendChild(document.createElement('div')) as HTMLElement;
         main_prod.classList.add('main_prod');
